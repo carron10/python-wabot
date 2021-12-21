@@ -30,7 +30,6 @@ def bot():
         app.logger.warning('Warning level log')
         send=""
         if msg.get_frm() in users.get_users().keys():
-                user=users.get_users()[msg.get_frm()]
                 send_msg(msg.get_frm(),request.form['To'],"Testing messages")
         else:
                 users.get_users()[msg.get_frm()]=user(msg.get_frm(),cart(),msg)
@@ -38,7 +37,9 @@ def bot():
                 send_msg(msg.get_frm(),request.form['To'],send)
                 
         user=users.get_users()[msg.get_frm()]
+        user.set_prv_msg(msg)
         user.set_last_msg_sent(send)
+        
         return "hhjhbh"
 if __name__ == '__main__':
    app.run(host='0.0.0.0',port=443,ssl_context=('cert.pem', 'key.pem'))

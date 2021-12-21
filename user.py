@@ -1,13 +1,16 @@
 
 class user:
     def __init__(self,id,cart,prv=None):
-        self.prvmsg=p
+        self.prvmsg=prv
         self.id=id
         self.cart=cart
         return
     def get_prv_msg(self):
         #to return the message previously sent by the user
         return self.prvmsg
+    def set_prv_msg(self,prv):
+        self.prvmsg=prv
+        #to return the message previously sent by the user
     def get_name():
         #To return the user name(if added).
         return self.name
