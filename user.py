@@ -8,7 +8,7 @@ class user:
     def get_prv_msg(self):
         #to return the message previously sent by the user
         return self.prvmsg
-    def get_name:
+    def get_name():
         #To return the user name(if added).
         return self.name
     def set_last_msg_sent(self,msg):
