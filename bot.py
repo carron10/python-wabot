@@ -4,7 +4,8 @@ from flask import Flask, redirect, url_for, request
 from users import users
 from message import message
 from user import user
-
+os.environ['TWILIO_ACCOUNT_SID']="AC7dfb1e683991fbc0c74dce6a58230862"
+os.environ['TWILIO_AUTH_TOKEN']="cc79eedc5c00cfd89fc960aa25db257e"
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
 client = Client(account_sid, auth_token)

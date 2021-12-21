@@ -2,7 +2,7 @@
 class message:
     def __init__(self,message):
         self.msg=message
-    def get_msg_id:
+    def get_msg_id():
         #To return the id of this message
         return self.msg['SmsMessageSid']
     def get_frm(self):
