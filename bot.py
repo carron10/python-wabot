@@ -34,7 +34,8 @@ def bot():
         if msg.get_frm() in users.get_users().keys():
                 send_msg(msg.get_frm(),request.form['To'],"Testing messages")
         else:
-                users.get_users()[msg.get_frm()]=user(msg.get_frm(),cart(),msg)
+                cart=cart(msg.get_frm())
+                users.get_users()[msg.get_frm()]=user(msg.get_frm(),cart,msg)
                 send="Thank you for sending your message"
                 send_msg(msg.get_frm(),request.form['To'],send)
                 
