@@ -7,7 +7,7 @@ from user import user
 
 account_sid = os.getenv('TWILIO_ACCOUNT_SID')
 auth_token = os.getenv('TWILIO_AUTH_TOKEN')
-print(os.getenv('TWILIO_AUTH_TOKEN'))
+
 client = Client(account_sid, auth_token)
 users=users()
 
@@ -33,4 +33,4 @@ def bot():
         user=users.get_users()[msg.get_frm()]
         user.set_last_msg_sent(send)
 if __name__ == '__main__':
-   app.run(host='0.0.0.0',port=8080,ssl_context=('cert.pem', 'key.pem'))
+   app.run(host='0.0.0.0',port=8080,ssl_context=('/opt/python-wabot-master/cert.pem', '/opt/python-wabot-master/key.pem'))
