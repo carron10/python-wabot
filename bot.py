@@ -15,6 +15,9 @@ def send_msg(to,frm,body):
         print(message.sid)
         
 app = Flask(__name__)
+@app.route('/')
+def index():
+        return "Helo your app is running"
 @app.route('/bot/test/',methods=['POST'])
 def bot():
         msg=message(request.form)
