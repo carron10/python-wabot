@@ -25,6 +25,7 @@ def index():
         return "Helo your app is running"
 @app.route('/bot/test/',methods=['POST'])
 def bot():
+        global user
         msg=message(request.form)
         app.logger.info('Info level log')
         app.logger.warning('Warning level log')
