@@ -39,5 +39,6 @@ def bot():
                 
         user=users.get_users()[msg.get_frm()]
         user.set_last_msg_sent(send)
+        return "hhjhbh";
 if __name__ == '__main__':
    app.run(host='0.0.0.0',port=443,ssl_context=('cert.pem', 'key.pem'))
