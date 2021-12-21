@@ -5,10 +5,11 @@ class users:
                self.users=dict()
        def get_users(self):
               #to return ALL USERS
+              print(self.users.values())
                return self.users.values()
        def add(self,user):
             #To add new user
-              self.users[user.get_id]=user
+              self.users[user.get_id()]=user
        def remove(self,user):
               #to remove user
               self.users.remove(user.get_id())
