@@ -26,7 +26,7 @@ def index():
         return "Helo your app is running"
 @app.route('/bot/test/',methods=['POST'])
 def bot():
-        global user
+        global user,cart
         msg=message(request.form)
         app.logger.info('Info level log')
         app.logger.warning('Warning level log')
@@ -34,6 +34,7 @@ def bot():
         if msg.get_frm() in users.get_users().keys():
                 send_msg(msg.get_frm(),request.form['To'],"Testing messages")
         else:
+                
                 cart=cart(msg.get_frm())
                 users.get_users()[msg.get_frm()]=user(msg.get_frm(),cart,msg)
                 send="Thank you for sending your message"
