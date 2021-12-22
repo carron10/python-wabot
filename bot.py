@@ -36,8 +36,21 @@ logging.basicConfig( filename="/opt/pybot.log",level=logging.DEBUG, format=f'%(a
 
 @app.route('/bot/test/', methods=['POST'])
 def bot():
-        
-        return "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message><Body>Hello</Body></Message></Response>"
+        global user, cart
+        msg=message(request.form)
+        send=""
+        if msg.get_frm() in users.get_users().keys():
+                send_msg(msg.get_frm(),request.form['To'],"Testing messages")
+        else:
+                cart=cart(msg.get_frm())
+                users.get_users()[msg.get_frm()]=user(msg.get_frm(),cart,msg)
+                send="Thank you for sending your message"
+                send_msg(msg.get_frm(),request.form['To'],send)
+                
+        user=users.get_users()[msg.get_frm()]
+        user.set_prv_msg(msg)
+        user.set_last_msg_sent(send)
+        #return "<?xml version=\"1.0\" encoding=\"UTF-8"?><Response><Message><Body>Hello</Body></Message></Response>"
         
         
 @app.route('/')
@@ -55,6 +68,6 @@ def products():
         return render_template("products.html")
 
 if __name__ == '__main__':
-   app.run(host='0.0.0.0',port=80)
+   app.run(host='0.0.0.0',port=443,ssl_context=('/opt/cert.pem', '/opt/key.pem')
    #ssl_context=('/opt/cert.pem', '/opt/key.pem'
 
