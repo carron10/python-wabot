@@ -26,8 +26,7 @@ def send_msg(to, frm, body):
 
 
 app = Flask(__name__)
-logging.basicConfig(level=logging.DEBUG,
-                    format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
+logging.basicConfig( filename="/opt/pybot.log",level=logging.DEBUG, format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 
 
 @app.route('/')
@@ -37,7 +36,6 @@ def index():
 @app.route('/bot/test/', methods=['POST'])
 def bot():
         global user, cart
-        
         msg=message(request.form)
         app.logger.info('Info level log')
         app.logger.warning('Warning level log')
