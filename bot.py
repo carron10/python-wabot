@@ -57,17 +57,17 @@ def bot():
         
 @app.route('/')
 def index():
-        return template_render("index.html")
+        return render_template("index.html")
 
 @app.route('/about')
 def about():
-        return template_render("about.html")
+        return render_template("about.html")
 @app.route('/contact')
 def contact():
-        return template_render("contact.html")
+        return render_template("contact.html")
 @app.route('/products')
 def products():
-        return template_render("products.html")
+        return render_template("products.html")
 
 if __name__ == '__main__':
    app.run(host='0.0.0.0',port=80)
