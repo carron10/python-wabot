@@ -13,7 +13,7 @@ app = Flask(__name__)
 client = Client(account_sid, auth_token)
 users = users()
 
-logging.basicConfig( filename="opt/pybot.log",level=logging.DEBUG, format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
+logging.basicConfig( filename="/opt/pybot.log",level=logging.DEBUG, format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 
 
 def reply(**data):
