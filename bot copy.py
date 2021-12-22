@@ -28,7 +28,23 @@ def send_msg(to, frm, body):
 
 @app.route('/bot/test/', methods=['POST'])
 def bot():
-        return "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message><Body>Hello</Body></Message></Response>"
+        global user,cart
+        msg=message(request.form)
+        app.logger.info('Info level log')
+        app.logger.warning('Warning level log')
+        send=""
+        if msg.get_frm() in users.get_users().keys():
+                send_msg(msg.get_frm(),request.form['To'],"Testing messages")
+        else:
+                
+                cart=cart(msg.get_frm())
+                users.get_users()[msg.get_frm()]=user(msg.get_frm(),cart,msg)
+                send="Thank you for sending your message"
+                send_msg(msg.get_frm(),request.form['To'],send)
+                
+        user=users.get_users()[msg.get_frm()]
+        user.set_prv_msg(msg)
+        user.set_last_msg_sent(send)
         
         
 @app.route('/')
