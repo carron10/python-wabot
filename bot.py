@@ -13,6 +13,12 @@ auth_token = "cc79eedc5c00cfd89fc960aa25db257e"
 client = Client(account_sid, auth_token)
 users = users()
 
+def reply(**data):
+        template=render_template(data['file'],data=data)
+        response = make_response(template)
+        response.headers['Content-Type'] = 'application/xml'
+        return response
+
 
 def send_msg(to, frm, body):
         message = client.messages.create(body=body, from_=frm, to=to)
@@ -26,20 +32,12 @@ logging.basicConfig(level=logging.DEBUG,
 
 @app.route('/')
 def index():
-
-        template=render_template("welcome.xml")
-        response = make_response(template)
-        response.headers['Content-Type'] = 'application/xml'
-        return response
-
+        return reply(file="welcome.xml",name="Carron",media="true",media_url="Jjj")
 
 @app.route('/bot/test/', methods=['POST'])
 def bot():
         global user, cart
-        template=render_template("welcome.xml")
-        response = make_response(template)
-        response.headers['Content-Type'] = 'application/xml'
-        return response
+        
         msg=message(request.form)
         app.logger.info('Info level log')
         app.logger.warning('Warning level log')
@@ -59,4 +57,4 @@ def bot():
         
         return "hhjhbh"
 if __name__ == '__main__':
-   app.run(host='0.0.0.0',port=443,ssl_context=('cert.pem', 'key.pem'))
+   app.run(host='0.0.0.0',port=8080,ssl_context=('cert.pem', 'key.pem'))
