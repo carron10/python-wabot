@@ -1,6 +1,6 @@
 import os
 from twilio.rest import Client
-from flask import Flask, redirect, url_for, request
+from flask import Flask, redirect, url_for, request,render_template
 from users import users
 from message import message
 from user import user
