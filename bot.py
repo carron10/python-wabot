@@ -1,8 +1,10 @@
 import os
 from flask import Flask, redirect, url_for, request, render_template, make_response
+import logging
 account_sid = "AC7dfb1e683991fbc0c74dce6a58230862"
 auth_token = "cc79eedc5c00cfd89fc960aa25db257e"
 app = Flask(__name__)
+logging.basicConfig(filename="/opt/pybot.log",level=logging.DEBUG,format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 @app.route('/')
 def index():
         return render_template("index.html")
@@ -18,6 +20,7 @@ def products():
         return render_template("products.html")
 @app.route('/bot/test', methods=['POST'])
 def bot():
+        
         return "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message><Body>Hello</Body></Message></Response>"
 if __name__ == '__main__':
    app.run(host='0.0.0.0',port=443,ssl_context=('cert.pem', 'key.pem'))
