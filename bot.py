@@ -29,9 +29,9 @@ app = Flask(__name__)
 logging.basicConfig( filename="/opt/pybot.log",level=logging.DEBUG, format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 
 
-@app.route('/')
-def index():
-        return reply(file="welcome.xml",name="Carron",media="true",media_url="Jjj")
+#@app.route('/')
+#def index():
+#        return reply(file="welcome.xml",name="Carron",media="true",media_url="Jjj")
 
 @app.route('/bot/test/', methods=['POST'])
 def bot():
@@ -52,7 +52,7 @@ def bot():
         user=users.get_users()[msg.get_frm()]
         user.set_prv_msg(msg)
         user.set_last_msg_sent(send)
-        
-        return "hhjhbh"
+
 if __name__ == '__main__':
-   app.run(host='0.0.0.0',port=8080,ssl_context=('/opt/cert.pem', '/opt/key.pem'))
+   app.run(host='0.0.0.0',port=80)
+   #ssl_context=('/opt/cert.pem', '/opt/key.pem'
