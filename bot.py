@@ -68,6 +68,6 @@ def products():
         return render_template("products.html")
 
 if __name__ == '__main__':
-   app.run(host='0.0.0.0',port=443,ssl_context=('/opt/cert.pem', '/opt/key.pem')
+   app.run(host='0.0.0.0',port=443,ssl_context=('/opt/cert.pem', '/opt/key.pem'))
    #ssl_context=('/opt/cert.pem', '/opt/key.pem'
 
