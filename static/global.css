@@ -1,62 +1,84 @@
-.line{
-    height:4px; width:100px; border-width:0; color:red; background-color:red;
+.line {
+    height: 4px;
+    width: 100px;
+    border-width: 0;
+    color: red;
+    background-color: red;
 }
 
-.l-2{
-    height:2px; width:100px; border-width:0; color:red; background-color:red;
+.l-2 {
+    height: 2px;
+    width: 100px;
+    border-width: 0;
+    color: red;
+    background-color: red;
 }
-.navbar{
-    border-bottom: #e712bc  solid 1px;
+
+.navbar {
     text-transform: uppercase;
 }
-.carousel-txt{
+
+img {
+    width: 100%;
+}
+
+.carousel-txt {
     position: absolute;
     top: 50%;
     left: 20%;
     z-index: 999;
     color: white;
-
 }
 
-.coloured{
-    color: #e712bc; 
+.coloured {
+    color: #e712bc;
 }
 
-.carousel-item img{
+.carousel-item img {
     height: 500px;
 }
-a{
+
+a {
     color: #000000;
 }
-a:hover{
-    color: #e712bc; 
-    text-decoration: none;  
+
+a:hover {
+    color: #e712bc;
+    text-decoration: none;
 }
 
-.media-body a:hover{
+.media-body a:hover {
     padding-left: 10px;
     margin-top: 10px;
 }
 
-.projects{
+.projects {
     overflow: hidden;
-    position:  relative;
-
+    position: relative;
 }
-.projects img{
+
+.projects img {
     width: 100%;
 }
-.project-description a,.project-description p{
+
+.project-description a,
+.project-description p {
     visibility: hidden;
 }
-.project-description:hover ,.projects:hover .project-description{
+
+.project-description:hover,
+.projects:hover .project-description {
     top: 0;
 }
 
-.projects:hover .project-description a,.projects:hover .project-description p, .project-description:hover a,.project-description:hover p{
+.projects:hover .project-description a,
+.projects:hover .project-description p,
+.project-description:hover a,
+.project-description:hover p {
     visibility: visible;
 }
-.project-description{
+
+.project-description {
     top: 85%;
     display: block;
     height: 100%;
@@ -69,81 +91,99 @@ a:hover{
     width: 100%;
     z-index: 1;
 }
-.project-description h5{
+
+.project-description h5 {
     color: #ff0000;
 }
-.project-description a{
+
+.project-description a {
     background-color: #e712bc;
     color: #ffffff;
     padding: 5px;
 }
 
-.prices{
+.prices {
     list-style-type: none;
     padding: 0;
     margin: 0;
     padding-top: 16px;
 }
-.prices li{
+
+.prices li {
     padding: 10px;
     border: 1px solid #999999
 }
-.prices .head{
+
+.prices .head {
     background-color: #ff00cc;
     color: #ffffff;
 }
-.carousel-txt a,.prices a{
+
+.carousel-txt a,
+.prices a {
     background-color: #ff00cc;
     color: #ffffff;
     padding: 10px;
     margin: 10px;
 }
-.carousel-txt a:hover,.prices a:hover{
+
+.carousel-txt a:hover,
+.prices a:hover {
     background-color: #ff0000;
 }
-.togle{
+
+.togle {
     background-color: #ff0000;
 }
-.projects-container:hover,.service:hover,.prices:hover{
+
+.projects-container:hover,
+.service:hover,
+.prices:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.navbar-toggler:focus{
+
+.navbar-toggler:focus {
     outline: none !important;
 }
-.navbar-toggler:active,.navbar-toggler:hover{
+
+.navbar-toggler:active,
+.navbar-toggler:hover {
     outline: none !important;
 }
-.footer-social-link .fa{
+
+.footer-social-link .fa {
     color: #33ff33;
 }
-.footer-social-link .fa:hover{
+
+.footer-social-link .fa:hover {
     color: #0000ff;
     background-color: #ff00cc;
 }
-footer{
+
+footer {
     color: #ffffff;
 }
-@media (max-width:600px){
-    .carousel-item img{
+
+@media (max-width:600px) {
+    .carousel-item img {
         height: fit-content;
     }
-    .carousel-txt{
-        top:30%;
+    .carousel-txt {
+        top: 30%;
     }
-    .es{
+    .es {
         width: 100%;
     }
-    .prices{
+    .prices {
         margin: 10px;
-
     }
-
 }
-.go_up{
+
+.go_up {
     margin-bottom: 90px;
 }
 
-.navbar-toggler-icon{
+.navbar-toggler-icon {
     background-color: #0000ff2f;
     margin-bottom: 4px;
     display: block;
