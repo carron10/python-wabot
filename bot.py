@@ -1,23 +1,8 @@
 import os
 from flask import Flask, redirect, url_for, request, render_template, make_response
-from users import users
-from message import message
-from user import user
-from cart import cart
-import logging
-
 account_sid = "AC7dfb1e683991fbc0c74dce6a58230862"
 auth_token = "cc79eedc5c00cfd89fc960aa25db257e"
 app = Flask(__name__)
-client = Client(account_sid, auth_token)
-users = users()
-logging.basicConfig(filename="/opt/pybot.log",level=logging.DEBUG,format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
-def send_msg(to, frm, body):
-        message = client.messages.create(body=body, from_=frm, to=to)
-        print(message.sid)
-@app.route('/bot/test', methods=['POST'])
-def bot():
-        return "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message><Body>Hello world! -Lambda</Body><Media>https://demo.twilio.com/owl.png</Media></Message></Response>"
 @app.route('/')
 def index():
         return render_template("index.html")
@@ -31,5 +16,9 @@ def contact():
 @app.route('/products')
 def products():
         return render_template("products.html")
+
+@app.route('/bot/test', methods=['POST'])
+def bot():
+        return "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message><Body>Hello</Body></Message></Response>"
 if __name__ == '__main__':
    app.run(host='0.0.0.0',port=443,ssl_context=('cert.pem', 'key.pem'))
