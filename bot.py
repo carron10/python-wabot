@@ -16,7 +16,6 @@ def contact():
 @app.route('/products')
 def products():
         return render_template("products.html")
-
 @app.route('/bot/test', methods=['POST'])
 def bot():
         return "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message><Body>Hello</Body></Message></Response>"
