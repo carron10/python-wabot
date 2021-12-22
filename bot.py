@@ -9,6 +9,7 @@ from cart import cart
 account_sid = "AC7dfb1e683991fbc0c74dce6a58230862"
 auth_token = "cc79eedc5c00cfd89fc960aa25db257e"
 app = Flask(__name__)
+users = users()
 logging.basicConfig(filename="/opt/pybot.log",level=logging.DEBUG,format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 @app.route('/')
 def index():
@@ -27,7 +28,7 @@ def send_msg(body):
         return "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message><Body>%s</Body></Message></Response>"%(body)
 @app.route('/bot/test', methods=['POST'])
 def bot():
-        global user,cart
+        global user,cart,users
         msg=message(request.form)
         send=""
         if msg.get_frm() in users.get_users().keys():
