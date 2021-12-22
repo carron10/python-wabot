@@ -1,34 +1,45 @@
 import os
 from twilio.rest import Client
-from flask import Flask, redirect, url_for, request,render_template
+from flask import Flask, redirect, url_for, request, render_template, make_response
 from users import users
 from message import message
 from user import user
 from cart import cart
 import logging
 
-account_sid  ="AC7dfb1e683991fbc0c74dce6a58230862"
-auth_token ="cc79eedc5c00cfd89fc960aa25db257e"
+account_sid = "AC7dfb1e683991fbc0c74dce6a58230862"
+auth_token = "cc79eedc5c00cfd89fc960aa25db257e"
 
 client = Client(account_sid, auth_token)
-users=users()
+users = users()
 
-def send_msg(to,frm,body):
-        message = client.messages.create(body=body,from_=frm,to=to)
+
+def send_msg(to, frm, body):
+        message = client.messages.create(body=body, from_=frm, to=to)
         print(message.sid)
-        
+
+
 app = Flask(__name__)
-logging.basicConfig(filename='/opt/pybot.log', level=logging.DEBUG, format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
- 
+logging.basicConfig(level=logging.DEBUG,
+                    format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
+
+
 @app.route('/')
 def index():
-        
-        return "Helo your app is running"
-@app.route('/bot/test/',methods=['POST'])
+
+        template=render_template("welcome.xml")
+        response = make_response(template)
+        response.headers['Content-Type'] = 'application/xml'
+        return response
+
+
+@app.route('/bot/test/', methods=['POST'])
 def bot():
-        global user,cart
-        
-        return render_template("welcome.xml")
+        global user, cart
+        template=render_template("welcome.xml")
+        response = make_response(template)
+        response.headers['Content-Type'] = 'application/xml'
+        return response
         msg=message(request.form)
         app.logger.info('Info level log')
         app.logger.warning('Warning level log')
