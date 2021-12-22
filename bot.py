@@ -24,7 +24,7 @@ def products():
         return render_template("products.html")
 
 def send_msg(body):
-        return "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message><Body>{0}</Body></Message></Response>".format{body}
+        return "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message><Body>%s</Body></Message></Response>"%(body)
 @app.route('/bot/test', methods=['POST'])
 def bot():
         global user,cart
