@@ -1,0 +1,7 @@
+<data>
+    <products>
+        <product id="1" url="/static/mm.png" price="12" name="Sumsung J1">
+                This is a product
+        </product>
+    </products>
+</data>

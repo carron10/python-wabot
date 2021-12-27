@@ -1,4 +1,4 @@
-from learn2 import learn2
-learn=learn2("Va")
-learn.set_name("Muleya")
-print(learn.get_name())
+from products import products
+pro=products()
+
+print(pro.get(1).get_url())

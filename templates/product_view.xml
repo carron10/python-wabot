@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Message>
+        <Body>
+            Product Name:{{name}}
+            Product ID: {{id}}
+            Price: {{price}}
+            .....................................
+            Description: {{desc}}
+        </Body>
+        <Media>{{url}}</Media>
+    </Message>
+</Response>

@@ -4,16 +4,20 @@ class user:
         self.prvmsg=prv
         self.id=id
         self.cart=cart
-        return
+        print(id)
     def get_prv_msg(self):
         #to return the message previously sent by the user
         return self.prvmsg
     def set_prv_msg(self,prv):
         self.prvmsg=prv
         #to return the message previously sent by the user
-    def get_name():
+    def get_name(self):
         #To return the user name(if added).
         return self.name
+    def set_name(self,name):
+        #To return the user name(if added).
+        self.name=name
+        return
     def set_last_msg_sent(self,msg):
         self.lastmsg=msg;
         return
@@ -26,7 +30,11 @@ class user:
     def get_cart(self):
         #To return the cart corresponding to this user
         return self.cart
+    
+    def set_cart(self,cart):
+        #To return the cart corresponding to this user
+        self.cart=cart
+        return  
     def get_id(self):
         #To return the id of this user.. Normal the id is the phone number for this user
         return self.id
-    

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Message>
+        <Body>
+         Below is the list of product in cart::
+         .....................................
+         Name             Price
+         
+         {% for p in producs%}
+         
+         {{p.get_name()}}      {{p.price}}
+         --------------------
+         {% endfor %}
+         --------------------
+          *Total*              {{total}}
+        </Body>
+    </Message>
+</Response>

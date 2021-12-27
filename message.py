@@ -1,4 +1,3 @@
-
 class message:
     def __init__(self,message):
         self.msg=message
@@ -18,6 +17,5 @@ class message:
         #To return the media content type associated with this message
         return self.msg['MediaContentType0']
     def get_media_url(self):
-        #To return the media url associated with this message, this is not only null if the
-        #message is  sent with a media e.g a picture
+        #To return the media url associated with this message, this is not null if the message is  sent with a media e.g a picture
         return self.msg['MediaUrl0']

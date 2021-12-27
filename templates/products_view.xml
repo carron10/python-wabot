@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Message>
+        <Body>
+            Below are there products we are selling right now.
+            Select one of the options to view the corresponding product
+            {% for product in products %}
+            {{product.id}}. {{product.get_name()}}
+            {% endfor %}
+        </Body>
+    </Message>
+</Response>

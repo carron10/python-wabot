@@ -1,7 +1,7 @@
-class learn2:
-    def __init__(self,name):
-        self.name=name
-    def get_name(self):
-        return self.name
-    def set_name(self,name):
-        self.name=name
+money=200
+def getMoney(money):
+    money+=300
+    return money
+print(money)
+print("%d"%(getMoney(money)))
+print(money)
