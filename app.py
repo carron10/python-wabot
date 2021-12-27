@@ -17,9 +17,7 @@ from products import products
 app = Flask(__name__)
 users = users()
 product_list=products()
-logging.basicConfig(level=logging.DEBUG,
-                    format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
-
+logging.basicConfig(filename="\\opt\\pybot.log",level=logging.DEBUG,format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 
 @app.route('/')
 def index():
