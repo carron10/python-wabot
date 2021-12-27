@@ -17,7 +17,7 @@ from products import products
 app = Flask(__name__)
 users = users()
 product_list=products()
-logging.basicConfig(filename="\\opt\\pybot.log",level=logging.DEBUG,format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
+logging.basicConfig(filename="/opt/pybot.log",level=logging.DEBUG,format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 
 @app.route('/')
 def index():
@@ -71,7 +71,7 @@ def bot():
     global user, users
     ##This is the function that will be executed when they is a message sent from twillio
     
-    
+    print(request.form)
     msg = message(request.form)    #It represent the message that have been sent
     
     if msg.get_frm() in users.get_users().keys(): 
