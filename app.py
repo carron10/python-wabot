@@ -7,7 +7,7 @@
 # order-> To view the oders made by the user!!
 
 import logging
-from flask import Flask,request
+from flask import Flask,request,render_template
 from users import users
 from message import message
 from user import user

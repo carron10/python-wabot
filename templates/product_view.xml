@@ -2,11 +2,15 @@
 <Response>
     <Message>
         <Body>
-            Product Name:{{name}}
-            Product ID: {{id}}
-            Price: {{price}}
-            .....................................
-            Description: {{desc}}
+Product Name:{{name}}
+Product ID: {{id}}
+Price: {{price}}
+.....................................
+Description: {{desc}}
+
+--
+To add the product to cart please send *add {{id}}*
+
         </Body>
         <Media>{{url}}</Media>
     </Message>
