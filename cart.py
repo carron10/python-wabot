@@ -51,7 +51,7 @@ class cart:
         tmp=self.products.copy()
         data = msg.get_body().split()
         if len(data[1:]) == 0:
-            return "Sorry you didn't specify the product to add in cart. pliz use *add n* to remove the product with id *n* in your cart."
+            return "Sorry you didn't specify the product to add in cart. pliz use *add n* to add the product with id *n* in your cart."
         for i in data[1:]:
             try:
                 id = int(i)
@@ -90,7 +90,7 @@ class cart:
         tmp=self.products.copy()
         data = msg.get_body().split()
         if len(data[1:]) == 0:
-            return "Sorry you didn't specify the product to remove from cart. pliz use *remove n* to add the product with id *n* in your cart."
+            return "Sorry you didn't specify the product to remove from cart. pliz use *remove n* to remove the product with id *n* in your cart."
         for i in data[1:]:
             try:
                 id = int(i)
