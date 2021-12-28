@@ -17,7 +17,7 @@ from products import products
 app = Flask(__name__)
 users = users()
 product_list=products()
-logging.basicConfig(filename="/opt/pybot.log",level=logging.DEBUG,format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
+#logging.basicConfig(filename="/opt/pybot.log",level=logging.DEBUG,format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 
 @app.route('/')
 def index():
@@ -58,11 +58,14 @@ def handle(msg, u):
     elif (msg.get_body() == "order"):
         return order(u)
     elif msg.get_body().startswith("add"):
-        return send_msg(u.get_cart().add(msg))
+        return send_msg(u.get_cart().add(msg,product_list,users))
+    elif msg.get_body()=="cart":
+        return u.get_cart().send(product_list)
     elif (msg.get_body() == "checkout"):
         return send_msg(u.get_cart().checkout())
     else:
         send = "Sorry %s invalid Value!!<br>" % (u.get_name())
+        u.set_last_msg_sent("home")
         return send_msg(send+data["home_alt"])
 
 
@@ -85,6 +88,7 @@ def bot():
         
         if(u.get_last_msg_sent() == "welcome"): #if previous msg that we sent is a welcome message--then...
             u.set_name(msg.get_body())   
+            users.save()
             return home(u)
         elif (u.get_last_msg_sent() == "home"): #if previous msg that we sent is a home message--then.. do below tasks.
             try:
@@ -125,15 +129,14 @@ def bot():
             return home(u)
     else:
         users.get_users()[msg.get_frm()] = user(
-            msg.get_frm(),None, msg)
+            msg.get_frm(),None,None, msg)
         u = users.get_users()[msg.get_frm()]
         crt=cart(u)
         u.set_cart(crt)
         u.set_prv_msg(msg)
         u.set_last_msg_sent("welcome")
+        users.save()
         return send_msg(data["welcome"])
-
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=443,
             ssl_context=('cert.pem', 'key.pem'))

@@ -1,10 +1,11 @@
 
 class user:
-    def __init__(self,id,cart,prv=None):
+    def __init__(self,id,cart=None,name=None,prv=None):
         self.prvmsg=prv
         self.id=id
         self.cart=cart
-        print(id)
+        self.lastmsg=None
+        self.name=name
     def get_prv_msg(self):
         #to return the message previously sent by the user
         return self.prvmsg
@@ -38,3 +39,12 @@ class user:
     def get_id(self):
         #To return the id of this user.. Normal the id is the phone number for this user
         return self.id
+    def __str__(self):
+        return '{"name":"%s","id":"%s","cart":"%s"}'%(self.name,self.id,self.cart)
+    def get_data(self):
+        data=dict()
+        data["name"]=self.name
+        data['id']=self.id
+        data['cart']=self.cart.get_data()
+        return data
+    

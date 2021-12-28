@@ -1,11 +1,16 @@
 from xml.dom import minidom
 from product import product
 from flask import Flask, redirect, url_for, request, render_template, make_response
+from pathlib import Path
 class products:
     def __init__(self):
         global product
         self.product_list=dict()
-        file=minidom.parse("products.xml")
+        f = Path("/opt/py/")
+        f.mkdir(parents=True, exist_ok=True)
+        filename=f/"products.xml"
+        
+        file=minidom.parse(str(filename.absolute()))
         products=file.getElementsByTagName("product")
         for p in products:
             id=int(p.attributes['id'].value)
@@ -14,7 +19,7 @@ class products:
             price=p.attributes['price'].value
             url=p.attributes['url'].value
             self.product_list[id]=product(id,name,url,price,desc)
-            print(f"\nProduct Name: {name}\nId:{id}\nDescription: {desc}\nUrl: {url}\n")
+           # print(f"\nProduct Name: {name}\nId:{id}\nDescription: {desc}\nUrl: {url}\n")
         
         #It accepts list of products. These are usual products that  are already in dabase
     def get_products(self):

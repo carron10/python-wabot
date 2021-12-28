@@ -4,15 +4,16 @@
         <Body>
          Below is the list of product in cart::
          .....................................
-         Name             Price
+         Name           Price
          
-         {% for p in producs%}
-         
-         {{p.get_name()}}      {{p.price}}
+         {% for k in products %}
+         {{k[0].get_name()}}            USD${{k[0].price}}  *{{k[1]}}
          --------------------
          {% endfor %}
          --------------------
-          *Total*              {{total}}
+          *Total*                    USD${{total}} 
+
+          For checkout pliz send *checkout*
         </Body>
     </Message>
 </Response>
