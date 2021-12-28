@@ -135,10 +135,9 @@ def bot():
                     return send_msg("Error no Product like that")
             except ValueError:
                 return handle(msg, u)
-        elif ((u.get_last_msg_sent() == "cart") or (u.get_last_msg_sent() == "order") or (u.get_last_msg_sent() == "add")):
-            return handle(msg, u)
         else:
-            return home(u)
+            return handle(msg, u)
+        
     else:
         users.get_users()[msg.get_frm()] = user(
             msg.get_frm(), None, None, msg)

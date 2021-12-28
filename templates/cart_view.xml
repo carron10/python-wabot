@@ -2,18 +2,17 @@
 <Response>
     <Message>
         <Body>
-         Below is the list of product in cart::
-         .....................................
-         Name           Price
-         
-         {% for k in products %}
-         {{k[0].get_name()}}            USD${{k[0].price}}  *{{k[1]}}
+Below is the list of product in cart::
+         .......................
+ Name           Price
+{% for k in products %}
+{{k[0].get_name()}}            USD${{k[0].price}}  *{{k[1]}}
          --------------------
-         {% endfor %}
-         --------------------
-          *Total*                    USD${{total}} 
+{% endfor %}
+--------------------
+*Total*                    USD${{total}} 
 
-          For checkout pliz send *checkout*
+For checkout pliz send *checkout*
         </Body>
     </Message>
 </Response>
