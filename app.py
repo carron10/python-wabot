@@ -66,6 +66,13 @@ def help():
     response.headers['Content-Type'] = 'application/xml'
     return response
 
+def about():
+    template = render_template(
+            "about.xml")
+    response = make_response(template)
+    response.headers['Content-Type'] = 'application/xml'
+    return response
+
 def handle(msg, u):
     # tries to map user message to the corresponding function
     if(msg.get_body() == "home"):
@@ -82,6 +89,8 @@ def handle(msg, u):
         return send_msg(u.get_cart().checkout())
     elif (msg.get_body() == "help"):
         return help()
+    elif (msg.get_body() == "about"):
+        return about()
     else:
         send = "Sorry *%s* invalid Value!!" % (u.get_name())
         u.set_last_msg_sent("home")
@@ -123,6 +132,8 @@ def bot():
                     return order(u)
                 elif v == 4:
                     return help()
+                elif v == 5:
+                    return about()
                 else:
                     send = "Sorry %s invalid Value." % (u.get_name())
                     return send_msg(send+data["home_alt"])

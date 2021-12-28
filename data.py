@@ -14,6 +14,7 @@ data={
  2. View Cart
  3. Show Order
  4. Help
+ 5. About
  To go back to this home page send *home*
  To view your cart send *cart*
  To  track your order send *order*'''
