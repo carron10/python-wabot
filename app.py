@@ -108,7 +108,7 @@ def bot():
                 if v == 1:
                     return show_products(u)
                 elif v == 2:
-                    return send_msg(u.get_cart().send())
+                    return u.get_cart().send(product_list)
                 elif v == 3:
                     return order(u)
                 else:

@@ -7,7 +7,7 @@ data={
  3. Show Order
  4. Help
  To go back to this home page send *home*
- To go to view your cart send *cart*
+ To  view your cart send *cart*
  To track your order send *order*''',
  "home_alt":'''Please enter one of  the options below to proceed 
  1. List Products
@@ -15,6 +15,6 @@ data={
  3. Show Order
  4. Help
  To go back to this home page send *home*
- To go to view your cart send *cart*
- To track your order send *order*'''
+ To view your cart send *cart*
+ To  track your order send *order*'''
     }
