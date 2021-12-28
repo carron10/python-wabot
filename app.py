@@ -7,7 +7,7 @@
 # order-> To view the oders made by the user!!
 
 import logging
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template,make_response
 from users import users
 from message import message
 from user import user
@@ -68,10 +68,18 @@ def handle(msg, u):
         return order(u)
     elif msg.get_body().startswith("add"):
         return send_msg(u.get_cart().add(msg, product_list, users))
+    elif msg.get_body().startswith("remove"):
+        return send_msg(u.get_cart().remove(msg, product_list, users))
     elif msg.get_body() == "cart":
         return u.get_cart().send(product_list)
     elif (msg.get_body() == "checkout"):
         return send_msg(u.get_cart().checkout())
+    elif (msg.get_body() == "help"):
+        template = render_template(
+            "help.xml")
+        response = make_response(template)
+        response.headers['Content-Type'] = 'application/xml'
+        return response
     else:
         send = "Sorry %s invalid Value!!" % (u.get_name())
         u.set_last_msg_sent("home")

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Message>
+        <Body>
+This guide shows you how to use this platform. 
+
+*home*
+Home is the default message that u receive soon when we start chatting.
+To get back to home send the word *
+
+*Products*
+To view products you need to send *home*, then choose option *1*, After that you then select the number of the specific product you want to view.
+*Cart*
+When you want to but a product you must add it to cart first. 
+To add product in cart send *add n* where *n* is the id of the product you want to add in cart.
+To add more than one product in cart you send *add n1 n2 n3 ...* were *n1*,*n2*,*n3* are products you wnat to add in cart
+Sometimes you might want to add more than one products of the same type for example say you want to buy 2 samsung j1 cellphones, you send *add n*i* where *n* is the id of the product and *i* is the number of products you want.
+
+To remove a product from cart send *remove n* where *n* is the product id
+Lastly, to view all the products on cart, send word *cart*
+
+*To checkout* send *checkoutt*
+
+To view order(s) that send *order*
+      </Body>
+    </Message>
+</Response>
