@@ -9,7 +9,7 @@ data={
  To go back to this home page send *home*
  To  view your cart send *cart*
  To track your order send *order*''',
- "home_alt":'''Please enter one of  the options below to proceed 
+ "home_alt":'''Please enter one of the options below to proceed 
  1. List Products
  2. View Cart
  3. Show Order
