@@ -73,7 +73,7 @@ def handle(msg, u):
     elif (msg.get_body() == "checkout"):
         return send_msg(u.get_cart().checkout())
     else:
-        send = "Sorry %s invalid Value!!<br>" % (u.get_name())
+        send = "Sorry %s invalid Value!!" % (u.get_name())
         u.set_last_msg_sent("home")
         return send_msg(send+data["home_alt"])
 
@@ -149,7 +149,6 @@ def bot():
         u.set_last_msg_sent("welcome")
         users.save()
         return send_msg(data["welcome"])
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=443,
