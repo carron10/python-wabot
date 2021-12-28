@@ -143,7 +143,7 @@ def bot():
         users.get_users()[msg.get_frm()] = user(
             msg.get_frm(), None, None, msg)
         u = users.get_users()[msg.get_frm()]
-        crt = cart(u)
+        crt = cart(u,dict())
         u.set_cart(crt)
         u.set_prv_msg(msg)
         u.set_last_msg_sent("welcome")

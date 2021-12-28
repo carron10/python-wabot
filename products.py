@@ -4,7 +4,6 @@ from flask import Flask, redirect, url_for, request, render_template, make_respo
 from pathlib import Path
 class products:
     def __init__(self):
-        global product
         self.product_list=dict()
         f = Path("/opt/py/")
         f.mkdir(parents=True, exist_ok=True)
