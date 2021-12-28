@@ -146,7 +146,7 @@ def bot():
         elif ((u.get_last_msg_sent() == "checkout") or (u.get_last_msg_sent() == "cart") or (u.get_last_msg_sent() == "order") or (u.get_last_msg_sent() == "add")):
             return handle(msg, u)
         else:
-            return home(u)
+            return handle(msg, u)
     else:
         users.get_users()[msg.get_frm()] = user(
             msg.get_frm(), None, None, msg)
