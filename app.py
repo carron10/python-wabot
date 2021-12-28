@@ -83,7 +83,7 @@ def handle(msg, u):
     elif (msg.get_body() == "help"):
         return help()
     else:
-        send = "Sorry %s invalid Value!!" % (u.get_name())
+        send = "Sorry *%s* invalid Value!!" % (u.get_name())
         u.set_last_msg_sent("home")
         return send_msg(send+data["home_alt"])
 
@@ -163,5 +163,5 @@ def bot():
         return send_msg(data["welcome"])
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True, port=443,
+    app.run(host='0.0.0.0', debug=True, port=8080,
             ssl_context=('cert.pem', 'key.pem'))
