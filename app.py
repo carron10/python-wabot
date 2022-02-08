@@ -36,24 +36,17 @@ def send_mmsg(body, url):
     # To return a message with an image(provided url of the img) attached on it
     return "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message><Body>%s</Body><Media>%s</Media></Message></Response>" % (body, url)
 
-
 def send_msg(body):
     # To return a message
     return "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message><Body>%s</Body></Message></Response>" % (body)
-
-
 def order(u):
     # return details of the product with corresponding id
     u.set_last_msg_sent("order")
     return send_msg("Viewing ordering _____")
-
-
 def show_products(u):
     # return all the products that the company is selling
     u.set_last_msg_sent("product_list")
     return product_list.send()
-
-
 def home(u):
     # return home message
     u.set_last_msg_sent("home")
@@ -172,6 +165,5 @@ def bot():
         u.set_last_msg_sent("welcome")
         users.save()
         return send_msg(data["welcome"])
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True, port=8080)
