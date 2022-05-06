@@ -68,21 +68,22 @@ def about():
 
 def handle(msg, u):
     # tries to map user message to the corresponding function
-    if(msg.get_body() == "home"):
+    if(msg.get_body().lower()== "home"):
+        
         return home(u)
-    elif (msg.get_body() == "order"):
+    elif (msg.get_body().lower() == "order"):
         return order(u)
-    elif msg.get_body().startswith("add"):
+    elif msg.get_body().lower().startswith("add"):
         return send_msg(u.get_cart().add(msg, product_list, users))
-    elif msg.get_body().startswith("remove"):
+    elif msg.get_body().lower().startswith("remove"):
         return send_msg(u.get_cart().remove(msg, product_list, users))
-    elif msg.get_body() == "cart":
+    elif msg.get_body().lower() == "cart":
         return u.get_cart().send(product_list)
-    elif (msg.get_body() == "checkout"):
+    elif (msg.get_body().lower() == "checkout"):
         return send_msg(u.get_cart().checkout())
-    elif (msg.get_body() == "help"):
+    elif (msg.get_body().lower() == "help"):
         return help()
-    elif (msg.get_body() == "about"):
+    elif (msg.get_body().lower() == "about"):
         return about()
     else:
         send = "Sorry *%s* invalid Value!!" % (u.get_name())
@@ -166,4 +167,4 @@ def bot():
         users.save()
         return send_msg(data["welcome"])
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True, port=8080)
+    app.run(host='0.0.0.0',)
