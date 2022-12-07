@@ -1,5 +1,5 @@
 class database:
-    def __init__(self,db,user,pswd):
+    def __init__(self):
         
         self.conn = psycopg2.connect(
         host=os.getenv("postgres_host"),
