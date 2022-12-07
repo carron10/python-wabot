@@ -2,3 +2,4 @@ twilio
 flask
 uwsgi
 Gunicorn
+psycopg2
