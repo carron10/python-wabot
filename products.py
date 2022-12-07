@@ -2,14 +2,20 @@ from xml.dom import minidom
 from product import product
 from flask import Flask, redirect, url_for, request, render_template, make_response
 from pathlib import Path
+from database import database
+
 class products:
     def __init__(self):
         self.product_list=dict()
-        f = Path("/opt/py/")
-        f.mkdir(parents=True, exist_ok=True)
-        filename=f/"products.xml"
-        
-        file=minidom.parse(str(filename.absolute()))
+        self.con=database.get_connection()
+      
+        cur=self.con.cursor()
+        cur.execute('''
+        select products from my_data where id=0
+        ''')
+        my_products=cur.fetchone()
+        cur.close()
+        file=minidom.parse(str(my_products))
         products=file.getElementsByTagName("product")
         for p in products:
             id=int(p.attributes['id'].value)

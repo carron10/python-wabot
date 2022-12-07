@@ -2,24 +2,30 @@ from user import user
 import json
 from cart import cart
 from pathlib import Path
+from database import database
 
 class users:
 
        def __init__(self):
+        self.con=database.get_connection()
         self.users = dict()
-        f = Path("/opt/py/")
-        f.mkdir(parents=True, exist_ok=True)
-        filename=f/"users.json"
-   
-        with open(filename, 'r') as openfile:
-            json_object = json.load(openfile)
-            openfile.close()
-       
+        cur=self.con.cursor()
+        cur.execute('''
+        select users  from my_data where id=0
+        ''')
+        my_users=cur.fetchone()
+        cur.close()
+        json_object = json.load(my_users)
         for n in json_object:
                u=user(n['id'],None,n['name'])
                u.set_cart(cart(u,n['cart']))
                self.users[n['id']]=u
-       
+        
+        for n in json_object:
+               u=user(n['id'],None,n['name'])
+               u.set_cart(cart(u,n['cart']))
+               self.users[n['id']]=u
+
        def get_users(self):
           return self.users
 
@@ -45,14 +51,12 @@ class users:
         return u
        def save(self):
               data=list()
-              f = Path("/opt/py/")
-              f.mkdir(parents=True, exist_ok=True)
-              filename=f/"users.json"
               for u in self.users.values():
                      data.append(u.get_data())
                      
-              with open(filename, "w") as outfile:
-                     json.dump(data, outfile)
+              cur=self.con.execute(f'''insert into my_data(users) values({data}) where id=0''')
+              cur.close()
+              return
 
               
               
