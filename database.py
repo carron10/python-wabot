@@ -17,5 +17,4 @@ class database:
         )''')
         cur.close()
     def get_connection(self):
-         
         return self.conn

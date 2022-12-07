@@ -7,7 +7,7 @@ from database import database
 class users:
 
        def __init__(self):
-        self.con=database.get_connection()
+        self.con=database().get_connection()
         self.users = dict()
         cur=self.con.cursor()
         cur.execute('''

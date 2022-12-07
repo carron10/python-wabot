@@ -7,7 +7,7 @@ from database import database
 class products:
     def __init__(self):
         self.product_list=dict()
-        self.con=database.get_connection()
+        self.con=database().get_connection()
       
         cur=self.con.cursor()
         cur.execute('''
