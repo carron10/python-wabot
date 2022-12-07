@@ -1,3 +1,5 @@
+import psycopg2
+
 class database:
     def __init__(self):
         
