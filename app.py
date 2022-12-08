@@ -14,7 +14,13 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # Home webpage
     return render_template("index.html")
+
+@app.route('/bot/test', methods=['POST'])
+def bot():
+    print(request.form)
+    msg = message(request.form)
+    return msg
+     
 if __name__ == '__main__':
     app.run(host='0.0.0.0',)
