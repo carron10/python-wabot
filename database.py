@@ -19,7 +19,7 @@ class database:
         port = port
         )
         cur=self.conn.cursor()
-        cur.execute(''''create table if not exists my_data(id SERIAL,users text,msgs text,products text)''')
+        cur.execute('''create table if not exists my_data(id SERIAL,users text,msgs text,products text)''')
         cur.close()
     def get_connection(self):
         return self.conn
