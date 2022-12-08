@@ -8,10 +8,19 @@
 
 import logging
 from flask import Flask, request, render_template,make_response
-
+from message import message
 
 app = Flask(__name__)
 
+def send_mmsg(body, url):
+    # To return a message with an image(provided url of the img) attached on it
+    return "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message><Body>%s</Body><Media>%s</Media></Message></Response>" % (body, url)
+
+def send_msg(body):
+    # To return a message
+    return "<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message><Body>%s</Body></Message></Response>" % (body)
+
+    
 @app.route('/')
 def index():
     return render_template("index.html")
@@ -19,8 +28,8 @@ def index():
 @app.route('/bot/test',methods=['POST'])
 def bot():
     print(request.form)
-    msg = request.form
-    return msg
+    msg = message(request.form)
+    return msg.as_str()
      
 if __name__ == '__main__':
     app.run(host='0.0.0.0',)

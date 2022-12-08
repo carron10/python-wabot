@@ -19,3 +19,5 @@ class message:
     def get_media_url(self):
         #To return the media url associated with this message, this is not null if the message is  sent with a media e.g a picture
         return self.msg['MediaUrl0']
+    def as_str(self):
+        return str(self.msg)
