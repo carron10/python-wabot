@@ -9,8 +9,11 @@
 import logging
 from flask import Flask, request, render_template,make_response
 from message import message
+from database import database
 
 app = Flask(__name__)
+db=database()
+
 
 def send_mmsg(body, url):
     # To return a message with an image(provided url of the img) attached on it
@@ -27,9 +30,8 @@ def index():
 
 @app.route('/bot/test',methods=['POST'])
 def bot():
-    
     msg = message(request.form).as_str()
-    print(msg)
+    conn=db.get_connection()
     return send_msg(msg)
      
 if __name__ == '__main__':
