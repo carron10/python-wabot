@@ -1,6 +1,6 @@
 import psycopg2
 import os
-from urlparse import urlparse # for python 3+ use: from urllib.parse import urlparse
+from urllib.parse import urlparse # for python 3+ use: from urllib.parse import urlparse
 class database:
     def __init__(self):
         
