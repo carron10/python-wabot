@@ -3,4 +3,3 @@ flask
 uwsgi
 Gunicorn
 psycopg2
-urllib
