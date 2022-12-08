@@ -1,21 +1,4 @@
-{
-    "MediaContentType0": "image/jpeg",
-    "SmsMessageSid": "MM1b3c006dc008665c8dae48ee1ff602ff",
-    "NumMedia": "1",
-    "ProfileName": "Mr 0001f9caICE",
-    "SmsSid": "MM1b3c006dc008665c8dae48ee1ff602ff",
-    "WaId": "263771013028",
-    "SmsStatus": "received",
-    "Body": "",
-    "To": "whatsapp:+14155238886",
-    "NumSegments": "1",
-    "ReferralNumMedia": "0",
-    "MessageSid": "MM1b3c006dc008665c8dae48ee1ff602ff",
-    "AccountSid": "AC7dfb1e683991fbc0c74dce6a58230862",
-    "From": "whatsapp:+263771013028",
-    "MediaUrl0": "https://api.twilio.com/2010-04-01/Accounts/AC7dfb1e683991fbc0c74dce6a58230862/Messages/MM1b3c006dc008665c8dae48ee1ff602ff/Media/ME2b763c6ca1dd28ec5f6a03381b373704",
-    "ApiVersion": "2010-04-01"
-},
+,
 {
     "SmsMessageSid": [
         "SM157fd055f97e2f38e53d6bd8eccdcc2d"
