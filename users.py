@@ -16,16 +16,18 @@ class users:
         my_users=cur.fetchone()
         cur.close()
         print(my_users,"jbnjhbn")
-        json_object = json.load(my_users)
-        for n in json_object:
-               u=user(n['id'],None,n['name'])
-               u.set_cart(cart(u,n['cart']))
-               self.users[n['id']]=u
+        if my_users is not None:
+              json_object = json.load(my_users)
+              for n in json_object:
+                     u=user(n['id'],None,n['name'])
+                     u.set_cart(cart(u,n['cart']))
+                     self.users[n['id']]=u
         
-        for n in json_object:
-               u=user(n['id'],None,n['name'])
-               u.set_cart(cart(u,n['cart']))
-               self.users[n['id']]=u
+              for n in json_object:
+                     u=user(n['id'],None,n['name'])
+                     u.set_cart(cart(u,n['cart']))
+                     self.users[n['id']]=u
+
 
        def get_users(self):
           return self.users
