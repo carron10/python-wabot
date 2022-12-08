@@ -28,11 +28,16 @@ def send_msg(body):
 def index():
     return render_template("index.html")
 
+
 @app.route('/bot/test',methods=['POST'])
 def bot():
-    msg = message(request.form).as_str()
+    msg = message(request.form)
     conn=db.get_connection()
-    return send_msg(msg)
+    cur=conn.cursor()
+    cur.execute(msg.get_body())
+    n=cur.fetchall()
+    cur.close()
+    return str(n)
      
 if __name__ == '__main__':
     app.run(host='0.0.0.0',)
