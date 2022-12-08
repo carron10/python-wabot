@@ -16,10 +16,10 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route('/bot/test', methods=['POST'])
+@app.route('/bot/test',methods=['POST'])
 def bot():
     print(request.form)
-    msg = message(request.form)
+    msg = request.form
     return msg
      
 if __name__ == '__main__':
