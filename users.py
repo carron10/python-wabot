@@ -15,6 +15,7 @@ class users:
         ''')
         my_users=cur.fetchone()
         cur.close()
+        print(my_users,"jbnjhbn")
         json_object = json.load(my_users)
         for n in json_object:
                u=user(n['id'],None,n['name'])
