@@ -30,7 +30,7 @@ def bot():
     
     msg = message(request.form).as_str()
     print(msg)
-    return msg
+    return send_msg(msg)
      
 if __name__ == '__main__':
     app.run(host='0.0.0.0',)
