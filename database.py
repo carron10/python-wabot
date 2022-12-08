@@ -1,14 +1,22 @@
 import psycopg2
 import os
-
+from urlparse import urlparse # for python 3+ use: from urllib.parse import urlparse
 class database:
     def __init__(self):
         
+        
+        result = urlparse("postgres://microservices_user:P0yvBbwCPkDutmCq22o9LvOJyuidt8xe@dpg-ce7ikr1a6gdnvfth6m7g-a/microservices")
+        username = result.username
+        password = result.password
+        database = result.path[1:]
+        hostname = result.hostname
+        port = result.port
         self.conn = psycopg2.connect(
-        host=os.getenv("postgres_host"),
-        database=os.getenv("postgres_db"),
-        user=os.getenv("postgres_user"),
-        password=os.getenv("postgres_pswd")
+        database = database,
+        user = username,
+        password = password,
+        host = hostname,
+        port = port
         )
         cur=self.conn.cursor()
         cur.execute(''''create table if not exists my_data(
