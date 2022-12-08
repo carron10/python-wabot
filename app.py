@@ -27,9 +27,10 @@ def index():
 
 @app.route('/bot/test',methods=['POST'])
 def bot():
-    print(request.form)
-    msg = message(request.form)
-    return msg.as_str()
+    
+    msg = message(request.form).as_str()
+    print(msg)
+    return msg
      
 if __name__ == '__main__':
     app.run(host='0.0.0.0',)
