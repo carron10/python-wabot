@@ -11,8 +11,6 @@ from flask import Flask, request, render_template,make_response
 
 
 app = Flask(__name__)
-users = users()
-product_list = products()
 
 @app.route('/')
 def index():
