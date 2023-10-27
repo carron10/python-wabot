@@ -12,7 +12,7 @@ from message import message
 from database import database
 
 app = Flask(__name__)
-db=database()
+
 
 
 def send_mmsg(body, url):
@@ -31,9 +31,7 @@ def index():
     
 @app.route('/bot/test',methods=['POST'])
 def bot():
-    msg = message(request.form).as_str()
-    conn=db.get_connection()
-    return send_msg(msg)
+    return send_msg("Hello")
      
 if __name__ == '__main__':
     app.run(host='0.0.0.0',)
